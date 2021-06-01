@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Single Tweet View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="SingleTweet" id="Y6W-OH-hqX" customClass="SingleTweetViewController" customModule="twitterConsumerist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet Text" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EoJ-Ac-yr3">
+                                <rect key="frame" x="20" y="154" width="374" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FKL-E4-isM">
+                                <rect key="frame" x="20" y="76" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="40j-u4-Gd7"/>
+                                    <constraint firstAttribute="height" constant="70" id="iBP-sq-Db3"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3rT-aE-KrE" userLabel="username">
+                                <rect key="frame" x="98" y="99" width="48" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYM-Sy-1KP">
+                                <rect key="frame" x="352" y="832" width="39" height="30"/>
+                                <state key="normal" title="Reply"/>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LBE-7A-2Lu">
+                                <rect key="frame" x="20" y="790" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EoJ-Ac-yr3" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="GOc-ZO-lmM"/>
+                            <constraint firstItem="EoJ-Ac-yr3" firstAttribute="top" secondItem="FKL-E4-isM" secondAttribute="bottom" constant="8" symbolic="YES" id="JnD-t2-GK6"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LBE-7A-2Lu" secondAttribute="trailing" constant="20" id="LhZ-fm-YlJ"/>
+                            <constraint firstItem="FKL-E4-isM" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="32" id="RUf-IE-2AG"/>
+                            <constraint firstItem="LBE-7A-2Lu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="RoY-zi-sz3"/>
+                            <constraint firstItem="3rT-aE-KrE" firstAttribute="leading" secondItem="FKL-E4-isM" secondAttribute="trailing" constant="8" symbolic="YES" id="Ukb-uT-llq"/>
+                            <constraint firstItem="EoJ-Ac-yr3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="W0O-VC-KLK"/>
+                            <constraint firstItem="3rT-aE-KrE" firstAttribute="centerY" secondItem="FKL-E4-isM" secondAttribute="centerY" id="YFl-0b-wLc"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="aYM-Sy-1KP" secondAttribute="trailing" constant="23" id="lfq-dZ-L3i"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="EoJ-Ac-yr3" secondAttribute="trailing" constant="20" id="o6e-O5-Qjz"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="LBE-7A-2Lu" secondAttribute="bottom" constant="38" id="q0O-p0-ava"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="aYM-Sy-1KP" secondAttribute="bottom" id="sHW-DZ-5Rw"/>
+                            <constraint firstItem="FKL-E4-isM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="tJB-uG-BU9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="profileImage" destination="FKL-E4-isM" id="9gb-KI-Vbl"/>
+                        <outlet property="tweetTextLabel" destination="EoJ-Ac-yr3" id="CFs-d5-jFu"/>
+                        <outlet property="usernameLabel" destination="3rT-aE-KrE" id="5Zm-1S-CEO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="114.50892857142857"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

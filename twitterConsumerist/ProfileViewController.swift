@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var profileImage: UIImageView!
     @IBOutlet var fullnameLabel: UILabel!
@@ -18,62 +18,87 @@ class ProfileViewController: UIViewController {
     @IBOutlet var tweetUsername: UILabel!
     @IBOutlet var tweetTextLabel: UILabel!
 
+    @IBOutlet var tweetsTableView: UITableView!
+
+    var profileTweets: [String] = []
+    var profileUsername: String? = nil
+    var profilePic: UIImage? = nil
+    let twitterRequestsManager = TwitterRequestsManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        tweetsTableView.delegate = self
+        tweetsTableView.dataSource = self
 
-        let token = "AAAAAAAAAAAAAAAAAAAAALNGzgAAAAAAKdFeW3XmEaiU4%2BfiQRAcRa1SHuE%3DhCVifEVqbPJP9bU9nU6FdN89pOh50Z6xQIc3KJd1eGEqLznMaq"
-        let authToken: String? = "Bearer \(token)"
-        let url = URL(string: "https://api.twitter.com/2/users/by?usernames=martingranadosg&user.fields=description,created_at,profile_image_url&expansions=pinned_tweet_id&tweet.fields=author_id,created_at")!
-
-        let sessionConfig = URLSessionConfiguration.default
-        sessionConfig.httpAdditionalHeaders = ["Authorization": authToken!]
-        let session = URLSession(configuration: sessionConfig)
-        let task = session.dataTask(with: url) {
-            [unowned self] data, response, error in
-            if error != nil {
-                print("Error in request: \(String(describing: error))")
-            }
-            do {
-                let dictionary = try JSONSerialization.jsonObject(with: data!) as? [String: Any]
-                if let responseData = dictionary!["data"] as? [Any] {
-                    print(responseData.first!)
-                    let user = responseData.first! as? [String: String]
-
-                    DispatchQueue.main.async {
-                        // set profile
-                        descriptionLabel.text = user!["description"]
-                        fullnameLabel.text = user!["name"]
-
-                        usernameLabel.text = "@\(user!["username"] ?? "")"
-                        tweetUsername.text = "@\(user!["username"] ?? "")"
-
-                    }
-                    let imageURL = user!["profile_image_url"]
-                    let imageDataURL = URL(string: imageURL!)
-                    if let imageData = try? Data(contentsOf: imageDataURL!) {
-                        if let image = UIImage(data: imageData) {
-                            DispatchQueue.main.async {
-                                profileImage.image = image
-                                tweetImage.image = image
-                            }
-                        }
-                    }
-                }
-                if let pinnedTweet = dictionary!["includes"] as? [String: Any] {
-                    if let tweets = pinnedTweet["tweets"] as? [Any] {
-                        print(tweets.first!)
-                        let tweetText = tweets.first as! [String: String]
-                        DispatchQueue.main.async {
-                            tweetTextLabel.text = tweetText["text"]
-                        }
-
-                    }
-                }
-            } catch let error {
-                print(error)
+        twitterRequestsManager.getUserProfile() {
+            [unowned self] profileInfo in
+            DispatchQueue.main.async {
+                // set profile
+                descriptionLabel.text = profileInfo["description"]
+                fullnameLabel.text = profileInfo["fullName"]
+                usernameLabel.text = profileInfo["userName"]
+                tweetUsername.text = profileInfo["userName"]
+                self.profileUsername = profileInfo["userName"]
             }
         }
-        task.resume()
+
+        twitterRequestsManager.getProfilePic() {
+            [unowned self] profilePic in
+            DispatchQueue.main.async {
+                profileImage.image = profilePic
+                tweetImage.image = profilePic
+                self.profilePic = profilePic
+                self.tweetsTableView.reloadData()
+            }
+        }
+
+        twitterRequestsManager.getPinnedTweet() {
+            [unowned self] pinnedTweet in
+            DispatchQueue.main.async {
+                tweetTextLabel.text = pinnedTweet
+            }
+        }
+
+        twitterRequestsManager.getTimelineTweets() {
+            [unowned self] tweets in
+            profileTweets = tweets
+            DispatchQueue.main.async {
+                self.tweetsTableView.reloadData()
+            }
+        }
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tweetsTableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! TweetCell
+        if (profileTweets.count != 0) {
+            let tweet = profileTweets[indexPath.row]
+            cell.tweetContent.text = tweet
+            cell.profilePic.image = self.profilePic
+            cell.usernameLabel.text = self.profileUsername
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "showTweetDetail":
+            if let singleTweetViewController = segue.destination as? SingleTweetViewController {
+
+                if let tweet = tweetsTableView.indexPathForSelectedRow?.row {
+                    singleTweetViewController.tweetText = profileTweets[tweet]
+                    singleTweetViewController.profilePic = self.profilePic
+                    singleTweetViewController.username = self.profileUsername
+                }
+            }
+        default:
+            preconditionFailure("Unknown segue")
+        }
     }
 
 
