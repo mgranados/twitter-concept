@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2115266C266C037200FCA297 /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2115266B266C037200FCA297 /* ProfileHeaderView.xib */; };
+		2115266E266C05EA00FCA297 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2115266D266C05EA00FCA297 /* ProfileHeaderView.swift */; };
 		2172D104265B3132003D0044 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2172D103265B3132003D0044 /* AppDelegate.swift */; };
 		2172D106265B3132003D0044 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2172D105265B3132003D0044 /* SceneDelegate.swift */; };
 		2172D108265B3132003D0044 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2172D107265B3132003D0044 /* ProfileViewController.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2115266B266C037200FCA297 /* ProfileHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderView.xib; sourceTree = "<group>"; };
+		2115266D266C05EA00FCA297 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		2172D100265B3132003D0044 /* twitterConsumerist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twitterConsumerist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2172D103265B3132003D0044 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2172D105265B3132003D0044 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 				2172D10E265B3134003D0044 /* LaunchScreen.storyboard */,
 				21C998E426609DA200A2C81E /* SingleTweet.storyboard */,
 				2172D109265B3132003D0044 /* Main.storyboard */,
+				2115266B266C037200FCA297 /* ProfileHeaderView.xib */,
+				2115266D266C05EA00FCA297 /* ProfileHeaderView.swift */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -158,6 +164,7 @@
 				21C998E526609DA200A2C81E /* SingleTweet.storyboard in Resources */,
 				2172D110265B3134003D0044 /* LaunchScreen.storyboard in Resources */,
 				2172D10D265B3134003D0044 /* Assets.xcassets in Resources */,
+				2115266C266C037200FCA297 /* ProfileHeaderView.xib in Resources */,
 				2172D10B265B3132003D0044 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +183,7 @@
 				21C998E326604C0B00A2C81E /* TweetCell.swift in Sources */,
 				2172D106265B3132003D0044 /* SceneDelegate.swift in Sources */,
 				2172D118265B3932003D0044 /* TwitterRequestsManager.swift in Sources */,
+				2115266E266C05EA00FCA297 /* ProfileHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,16 +8,6 @@
 import UIKit
 
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    @IBOutlet var profileImage: UIImageView!
-    @IBOutlet var fullnameLabel: UILabel!
-    @IBOutlet var usernameLabel: UILabel!
-    @IBOutlet var descriptionLabel: UILabel!
-
-    @IBOutlet var tweetImage: UIImageView!
-    @IBOutlet var tweetUsername: UILabel!
-    @IBOutlet var tweetTextLabel: UILabel!
-
     @IBOutlet var tweetsTableView: UITableView!
 
     var profileTweets: [String] = []
@@ -30,34 +20,37 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         tweetsTableView.delegate = self
         tweetsTableView.dataSource = self
 
+
+
         twitterRequestsManager.getUserProfile() {
             [unowned self] profileInfo in
             DispatchQueue.main.async {
                 // set profile
-                descriptionLabel.text = profileInfo["description"]
-                fullnameLabel.text = profileInfo["fullName"]
-                usernameLabel.text = profileInfo["userName"]
-                tweetUsername.text = profileInfo["userName"]
-                self.profileUsername = profileInfo["userName"]
+                let header = ProfileHeaderView(frame: CGRect(x: 0.0, y: 0.0, width: view.frame.size.width, height: 300.0))
+                header.profileDescription = profileInfo["description"]
+                header.fullName = profileInfo["fullName"]
+                header.username = profileInfo["userName"]
+                tweetsTableView.tableHeaderView = header
             }
         }
 
         twitterRequestsManager.getProfilePic() {
             [unowned self] profilePic in
             DispatchQueue.main.async {
-                profileImage.image = profilePic
-                tweetImage.image = profilePic
+                let header = tweetsTableView.tableHeaderView as! ProfileHeaderView
+                header.profilePic = profilePic
                 self.profilePic = profilePic
+                tweetsTableView.tableHeaderView = header
                 self.tweetsTableView.reloadData()
             }
         }
 
-        twitterRequestsManager.getPinnedTweet() {
-            [unowned self] pinnedTweet in
-            DispatchQueue.main.async {
-                tweetTextLabel.text = pinnedTweet
-            }
-        }
+//        twitterRequestsManager.getPinnedTweet() {
+//            [unowned self] pinnedTweet in
+//            DispatchQueue.main.async {
+//                tweetTextLabel.text = pinnedTweet
+//            }
+//        }
 
         twitterRequestsManager.getTimelineTweets() {
             [unowned self] tweets in
@@ -95,6 +88,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                     singleTweetViewController.profilePic = self.profilePic
                     singleTweetViewController.username = self.profileUsername
                 }
+                tweetsTableView.deselectRow(at: tweetsTableView.indexPathForSelectedRow!, animated: true)
             }
         default:
             preconditionFailure("Unknown segue")
