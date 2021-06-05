@@ -14,8 +14,7 @@ class TwitterRequestsManager {
         return URLSession(configuration: urlSessionConfiguration)
     }()
 
-    let twitterToken = "" // provide Twitter Actual Token
-
+    let twitterToken = "AAAAAAAAAAAAAAAAAAAAALNGzgAAAAAAKdFeW3XmEaiU4%2BfiQRAcRa1SHuE%3DhCVifEVqbPJP9bU9nU6FdN89pOh50Z6xQIc3KJd1eGEqLznMaq"
     typealias GetUserProfileCompletionHandler = (_ profileInfo: [String: String]) -> Void
     typealias GetProfilePicCompletionHandler = (_ profileImage: UIImage) -> Void
     typealias GetPinnedTweetCompletionHandler = (_ pinnedTweet: String) -> Void
