@@ -39,7 +39,7 @@
                                 <rect key="frame" x="352" y="832" width="39" height="30"/>
                                 <state key="normal" title="Reply"/>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LBE-7A-2Lu">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LBE-7A-2Lu" userLabel="tweetInput">
                                 <rect key="frame" x="20" y="790" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -65,6 +65,7 @@
                     </view>
                     <connections>
                         <outlet property="profileImage" destination="FKL-E4-isM" id="9gb-KI-Vbl"/>
+                        <outlet property="tweetInput" destination="LBE-7A-2Lu" id="Hpc-M7-snB"/>
                         <outlet property="tweetTextLabel" destination="EoJ-Ac-yr3" id="CFs-d5-jFu"/>
                         <outlet property="usernameLabel" destination="3rT-aE-KrE" id="5Zm-1S-CEO"/>
                     </connections>
