@@ -9,6 +9,18 @@
 /* Begin PBXBuildFile section */
 		2115266C266C037200FCA297 /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2115266B266C037200FCA297 /* ProfileHeaderView.xib */; };
 		2115266E266C05EA00FCA297 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2115266D266C05EA00FCA297 /* ProfileHeaderView.swift */; };
+		2166E29E2683F96300735F16 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2166E29D2683F96300735F16 /* EndPointType.swift */; };
+		2166E2A02683FA5C00735F16 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2166E29F2683FA5C00735F16 /* HTTPMethod.swift */; };
+		2166E2A22683FAE400735F16 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2166E2A12683FAE400735F16 /* HTTPTask.swift */; };
+		2166E2A42683FBDF00735F16 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2166E2A32683FBDF00735F16 /* ParameterEncoding.swift */; };
+		2166E2A62683FDDA00735F16 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2166E2A52683FDDA00735F16 /* NetworkError.swift */; };
+		2166E2A82683FE1A00735F16 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2166E2A72683FE1A00735F16 /* URLParameterEncoder.swift */; };
+		2166E2AA268403A300735F16 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2166E2A9268403A300735F16 /* JSONParameterEncoder.swift */; };
+		2166E2AC2684044B00735F16 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2166E2AB2684044B00735F16 /* NetworkRouter.swift */; };
+		2166E2AE268405D200735F16 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2166E2AD268405D200735F16 /* Router.swift */; };
+		2166E2B026840B5B00735F16 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2166E2AF26840B5B00735F16 /* NetworkManager.swift */; };
+		2166E2B22685507100735F16 /* TwitterEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2166E2B12685507100735F16 /* TwitterEndpoint.swift */; };
+		2166E2B4268557C500735F16 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2166E2B3268557C500735F16 /* Profile.swift */; };
 		2172D104265B3132003D0044 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2172D103265B3132003D0044 /* AppDelegate.swift */; };
 		2172D106265B3132003D0044 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2172D105265B3132003D0044 /* SceneDelegate.swift */; };
 		2172D108265B3132003D0044 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2172D107265B3132003D0044 /* ProfileViewController.swift */; };
@@ -25,6 +37,18 @@
 /* Begin PBXFileReference section */
 		2115266B266C037200FCA297 /* ProfileHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderView.xib; sourceTree = "<group>"; };
 		2115266D266C05EA00FCA297 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		2166E29D2683F96300735F16 /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		2166E29F2683FA5C00735F16 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		2166E2A12683FAE400735F16 /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		2166E2A32683FBDF00735F16 /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		2166E2A52683FDDA00735F16 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		2166E2A72683FE1A00735F16 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
+		2166E2A9268403A300735F16 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		2166E2AB2684044B00735F16 /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		2166E2AD268405D200735F16 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		2166E2AF26840B5B00735F16 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		2166E2B12685507100735F16 /* TwitterEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterEndpoint.swift; sourceTree = "<group>"; };
+		2166E2B3268557C500735F16 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		2172D100265B3132003D0044 /* twitterConsumerist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twitterConsumerist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2172D103265B3132003D0044 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2172D105265B3132003D0044 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +94,7 @@
 		2172D102265B3132003D0044 /* twitterConsumerist */ = {
 			isa = PBXGroup;
 			children = (
+				21FA35C72682CF6D00FB7E66 /* Networking */,
 				2172D103265B3132003D0044 /* AppDelegate.swift */,
 				2172D105265B3132003D0044 /* SceneDelegate.swift */,
 				21E4B3D326631E490013A916 /* Models */,
@@ -100,8 +125,27 @@
 			isa = PBXGroup;
 			children = (
 				2172D11A265B39C4003D0044 /* Tweet.swift */,
+				2166E2B3268557C500735F16 /* Profile.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		21FA35C72682CF6D00FB7E66 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				2166E2AF26840B5B00735F16 /* NetworkManager.swift */,
+				2166E2B12685507100735F16 /* TwitterEndpoint.swift */,
+				2166E29D2683F96300735F16 /* EndPointType.swift */,
+				2166E29F2683FA5C00735F16 /* HTTPMethod.swift */,
+				2166E2A12683FAE400735F16 /* HTTPTask.swift */,
+				2166E2A32683FBDF00735F16 /* ParameterEncoding.swift */,
+				2166E2A52683FDDA00735F16 /* NetworkError.swift */,
+				2166E2A72683FE1A00735F16 /* URLParameterEncoder.swift */,
+				2166E2A9268403A300735F16 /* JSONParameterEncoder.swift */,
+				2166E2AB2684044B00735F16 /* NetworkRouter.swift */,
+				2166E2AD268405D200735F16 /* Router.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,13 +220,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2166E2B026840B5B00735F16 /* NetworkManager.swift in Sources */,
+				2166E2B4268557C500735F16 /* Profile.swift in Sources */,
 				2172D108265B3132003D0044 /* ProfileViewController.swift in Sources */,
 				2172D11B265B39C4003D0044 /* Tweet.swift in Sources */,
+				2166E29E2683F96300735F16 /* EndPointType.swift in Sources */,
 				2172D104265B3132003D0044 /* AppDelegate.swift in Sources */,
+				2166E2A82683FE1A00735F16 /* URLParameterEncoder.swift in Sources */,
+				2166E2AA268403A300735F16 /* JSONParameterEncoder.swift in Sources */,
 				21C998E72660A06400A2C81E /* SingleTweetViewController.swift in Sources */,
 				21C998E326604C0B00A2C81E /* TweetCell.swift in Sources */,
+				2166E2A42683FBDF00735F16 /* ParameterEncoding.swift in Sources */,
+				2166E2AC2684044B00735F16 /* NetworkRouter.swift in Sources */,
+				2166E2AE268405D200735F16 /* Router.swift in Sources */,
 				2172D106265B3132003D0044 /* SceneDelegate.swift in Sources */,
+				2166E2A22683FAE400735F16 /* HTTPTask.swift in Sources */,
 				2172D118265B3932003D0044 /* TwitterRequestsManager.swift in Sources */,
+				2166E2B22685507100735F16 /* TwitterEndpoint.swift in Sources */,
+				2166E2A62683FDDA00735F16 /* NetworkError.swift in Sources */,
+				2166E2A02683FA5C00735F16 /* HTTPMethod.swift in Sources */,
 				2115266E266C05EA00FCA297 /* ProfileHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

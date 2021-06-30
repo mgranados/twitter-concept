@@ -7,16 +7,11 @@
 
 import Foundation
 
-class Tweet {
-    var creator: String
-    var text: String
-    var creatorProfilePic: String
-    var creationDate: Date
+struct TweetsApiResponse: Codable {
+    let data: [Tweet]
+}
 
-    init(creator: String, text: String, creatorPic: String, creationDate: Date) {
-        self.creator = creator
-        self.text = text
-        self.creatorProfilePic = creatorPic
-        self.creationDate = creationDate
-    }
+struct Tweet: Codable {
+    let text: String
+    let id: String
 }
