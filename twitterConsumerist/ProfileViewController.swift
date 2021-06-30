@@ -10,51 +10,45 @@ import UIKit
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var tweetsTableView: UITableView!
 
-    var profileTweets: [String] = []
+    var profileTweets: [Tweet] = []
     var profileUsername: String? = nil
     var profilePic: UIImage? = nil
     let twitterRequestsManager = TwitterRequestsManager()
+    let networkManager = NetworkManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tweetsTableView.delegate = self
         tweetsTableView.dataSource = self
+        
+        networkManager.getUserProfile {
+            [unowned self] profile, error in
 
+            guard (error == nil) else {
+                return
+            }
 
-
-        twitterRequestsManager.getUserProfile() {
-            [unowned self] profileInfo in
             DispatchQueue.main.async {
-                // set profile
                 let header = ProfileHeaderView(frame: CGRect(x: 0.0, y: 0.0, width: view.frame.size.width, height: 300.0))
-                header.profileDescription = profileInfo["description"]
-                header.fullName = profileInfo["fullName"]
-                header.username = profileInfo["userName"]
+                header.profileDescription = profile?.description
+                header.fullName = profile?.fullName
+                header.username = profile?.userName
+
+                let imageURL = profile?.profileImageUrl.replacingOccurrences(of: "_normal", with: "")
+                let imageDataURL = URL(string: imageURL!)
+                if let imageData = try? Data(contentsOf: imageDataURL!) {
+                    if let profileImage = UIImage(data: imageData) {
+                        header.profilePic = profileImage
+                        self.profilePic = profileImage
+                    }
+                }
                 tweetsTableView.tableHeaderView = header
             }
         }
 
-        twitterRequestsManager.getProfilePic() {
-            [unowned self] profilePic in
-            DispatchQueue.main.async {
-                let header = tweetsTableView.tableHeaderView as! ProfileHeaderView
-                header.profilePic = profilePic
-                self.profilePic = profilePic
-                tweetsTableView.tableHeaderView = header
-                self.tweetsTableView.reloadData()
-            }
-        }
-
-//        twitterRequestsManager.getPinnedTweet() {
-//            [unowned self] pinnedTweet in
-//            DispatchQueue.main.async {
-//                tweetTextLabel.text = pinnedTweet
-//            }
-//        }
-
-        twitterRequestsManager.getTimelineTweets() {
-            [unowned self] tweets in
-            profileTweets = tweets
+        networkManager.getUserTweets {
+            [unowned self] tweets, error in
+            self.profileTweets = tweets!
             DispatchQueue.main.async {
                 self.tweetsTableView.reloadData()
             }
@@ -69,7 +63,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tweetsTableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! TweetCell
         if (profileTweets.count != 0) {
             let tweet = profileTweets[indexPath.row]
-            cell.tweetContent.text = tweet
+            cell.tweetContent.text = tweet.text
             cell.profilePic.image = self.profilePic
             cell.usernameLabel.text = self.profileUsername
             return cell
@@ -84,7 +78,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             if let singleTweetViewController = segue.destination as? SingleTweetViewController {
 
                 if let tweet = tweetsTableView.indexPathForSelectedRow?.row {
-                    singleTweetViewController.tweetText = profileTweets[tweet]
+                    singleTweetViewController.tweetText = profileTweets[tweet].text
                     singleTweetViewController.profilePic = self.profilePic
                     singleTweetViewController.username = self.profileUsername
                 }

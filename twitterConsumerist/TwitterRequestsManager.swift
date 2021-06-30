@@ -20,6 +20,9 @@ class TwitterRequestsManager {
     typealias GetPinnedTweetCompletionHandler = (_ pinnedTweet: String) -> Void
     typealias GetTimelineTweetsCompletionHandler = (_ pinnedTweets: [String]) -> Void
 
+    func getUserProfile2(completion: @escaping GetUserProfileCompletionHandler) {
+
+    }
 
     func getUserProfile(completion: @escaping GetUserProfileCompletionHandler) {
         var profileInfo: [String: String] = [:]
