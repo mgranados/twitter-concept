@@ -61,15 +61,16 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tweetsTableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! TweetCell
-        if (profileTweets.count != 0) {
-            let tweet = profileTweets[indexPath.row]
-            cell.tweetContent.text = tweet.text
-            cell.profilePic.image = self.profilePic
-            cell.usernameLabel.text = self.profileUsername
-            return cell
-        } else {
+
+        guard !profileTweets.isEmpty else {
             return UITableViewCell()
         }
+
+        let tweet = profileTweets[indexPath.row]
+        cell.tweetContent.text = tweet.text
+        cell.profilePic.image = self.profilePic
+        cell.usernameLabel.text = self.profileUsername
+        return cell
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
